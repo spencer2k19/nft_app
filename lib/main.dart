@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:nft_app/core/app/app.locator.dart';
 import 'package:nft_app/core/app/app.router.dart';
+import 'package:nft_app/ui/shared/colors.dart';
+import 'package:stacked_services/stacked_services.dart';
 
 void main() {
+  setupLocator();
   runApp(const MyApp());
 }
 
@@ -12,9 +16,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      navigatorKey: StackedService.navigatorKey,
+      title: 'NFT app',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: blueColor,
       ),
       onGenerateRoute: StackedRouter().onGenerateRoute,
 
