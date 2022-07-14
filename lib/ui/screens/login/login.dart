@@ -56,7 +56,7 @@ class Login extends StatelessWidget {
                 ],),
                 const SizedBox(height: 50,),
                 FilledButton(title: "Sign In", handler: (){
-
+                  locator<NavigationService>().navigateTo(Routes.tabHome);
                 }),
 
                 const SizedBox(height: 15,),

@@ -9,6 +9,7 @@ import 'package:nft_app/ui/screens/verification/verify.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
 
+import '../../ui/screens/home/tab_home.dart';
 import '../../ui/screens/verification/pin_code.dart';
 
 @StackedApp(routes: [
@@ -20,6 +21,7 @@ import '../../ui/screens/verification/pin_code.dart';
   MaterialRoute(page: PhoneVerification,),
   MaterialRoute(page: EmailVerification,),
   MaterialRoute(page: ResetPassword,),
+  MaterialRoute(page: TabHome,),
 ],dependencies: [
   Singleton(classType: DialogService),
   Singleton(classType: SnackbarService),
