@@ -24,7 +24,7 @@ class CoinItem extends StatelessWidget {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.symmetric(vertical: 15,horizontal: 20),
-      margin: const EdgeInsets.only(top: 10),
+      margin: const EdgeInsets.only(top: 10,left: 10,right: 10),
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [Row(
         children: [

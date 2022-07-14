@@ -79,12 +79,12 @@ class _TabHomeState extends State<TabHome> {
 
         BottomNavigationBarItem(
           icon: Icon(CupertinoIcons.chart_bar_square),
-          label: "NFTs",
+          label: "Stats",
         ),
 
         BottomNavigationBarItem(
           icon: Icon(CupertinoIcons.person_circle),
-          label: "NFTs",
+          label: "Profile",
         )
       ]),
     );

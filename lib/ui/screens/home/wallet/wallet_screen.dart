@@ -1,10 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:nft_app/core/app/app.locator.dart';
+import 'package:nft_app/core/app/app.router.dart';
 import 'package:nft_app/ui/screens/home/wallet/coins.dart';
 import 'package:nft_app/ui/screens/home/wallet/nfts.dart';
 import 'package:nft_app/ui/shared/colors.dart';
 import 'package:nft_app/ui/shared/title_style.dart';
+import 'package:stacked_services/stacked_services.dart';
 
 import 'defi.dart';
 
@@ -71,46 +74,46 @@ class WalletScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
+                        Row(
+                          children: [
+                            RichText(
+                                text: TextSpan(style: titleStyleNormal, children: [
+                              const TextSpan(text: "Connect wallet - "),
+                              TextSpan(
+                                  text: " Metamask",
+                                  style:
+                                      titleStyleNormal.copyWith(color: Colors.black))
+                            ])),
+                            // const SizedBox(width: 0,),
+                            const Icon(Icons.arrow_drop_down_outlined,color: Colors.black,)
+                          ],
+                        ),
                         InkWell(
                           onTap: (){
-
+                            locator<NavigationService>().navigateTo(Routes.walletManageScreen);
                           },
-                          child: Row(
-                            children: [
-                              RichText(
-                                  text: TextSpan(style: titleStyleNormal, children: [
-                                const TextSpan(text: "Connect wallet - "),
-                                TextSpan(
-                                    text: " Metamask",
-                                    style:
-                                        titleStyleNormal.copyWith(color: Colors.black))
-                              ])),
-                              // const SizedBox(width: 0,),
-                              const Icon(Icons.arrow_drop_down_outlined,color: Colors.black,)
-                            ],
-                          ),
-                        ),
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 5, horizontal: 5),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(2),
-                            color: const Color(0xFFE5E7EB),
-                          ),
-                          child: Row(
-                            children: [
-                              SvgPicture.asset(
-                                "assets/images/ethereum.svg",
-                                fit: BoxFit.cover,
-                              ),
-                              const SizedBox(
-                                width: 4,
-                              ),
-                              Text(
-                                "0x59485…82590",
-                                style: titleStyleNormal.copyWith(fontSize: 10),
-                              )
-                            ],
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 5, horizontal: 5),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(2),
+                              color: const Color(0xFFE5E7EB),
+                            ),
+                            child: Row(
+                              children: [
+                                SvgPicture.asset(
+                                  "assets/images/ethereum.svg",
+                                  fit: BoxFit.cover,
+                                ),
+                                const SizedBox(
+                                  width: 4,
+                                ),
+                                Text(
+                                  "0x59485…82590",
+                                  style: titleStyleNormal.copyWith(fontSize: 10),
+                                )
+                              ],
+                            ),
                           ),
                         )
                       ],
@@ -123,7 +126,7 @@ class WalletScreen extends StatelessWidget {
                       style: titleStyleHeading,
                     ),
                     const SizedBox(
-                      height: 20,
+                      height: 50,
                     ),
                     Row(
                       children: [
@@ -154,17 +157,15 @@ class WalletScreen extends StatelessWidget {
               ),
             ),
              const SliverPadding(padding: EdgeInsets.only(top: 20)),
-             const SliverPadding(
-              padding: EdgeInsets.symmetric(
-                horizontal: 20,
-              ),
-              sliver: SliverAppBar(
+              const SliverAppBar(
                 elevation: 0,
                 backgroundColor: Colors.white,
                 automaticallyImplyLeading: false,
                 toolbarHeight: 5,
 
+
                 bottom: TabBar(
+                  padding: EdgeInsets.symmetric(horizontal: 10),
                     labelColor: Colors.black,
                     indicatorSize: TabBarIndicatorSize.label,
 
@@ -184,18 +185,15 @@ class WalletScreen extends StatelessWidget {
 
                 ]),
               ),
-            ),
-              const SliverToBoxAdapter(child: Expanded(
 
-              child: SizedBox(
+              const SliverToBoxAdapter(child: SizedBox(
                 height: 300,
                 child: TabBarView(children: [
                   Coins(),
                   NFTs(),
                   Defi()
                 ]),
-              ),
-            ),),
+              ),),
             const SliverPadding(padding: EdgeInsets.only(bottom: 30))
           ],
         ),
