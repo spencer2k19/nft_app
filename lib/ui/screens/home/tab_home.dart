@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:nft_app/ui/screens/home/nft_screen.dart';
+import 'package:nft_app/ui/screens/home/nft/nft_screen.dart';
 import 'package:nft_app/ui/screens/home/profile/profile_screen.dart';
 import 'package:nft_app/ui/screens/home/search_screen.dart';
 import 'package:nft_app/ui/screens/home/stats_screen.dart';
@@ -64,7 +64,7 @@ class _TabHomeState extends State<TabHome> {
 
           items: const [
         BottomNavigationBarItem(
-            icon: Icon(Icons.account_balance_wallet_outlined,color: blueColor,),
+            icon: Icon(Icons.account_balance_wallet_outlined),
           label: "Wallet",
         ),
         BottomNavigationBarItem(

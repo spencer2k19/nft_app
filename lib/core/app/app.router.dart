@@ -13,6 +13,7 @@ import 'package:stacked/stacked_annotations.dart';
 import '../../ui/screens/forgot_password/reset_password.dart';
 import '../../ui/screens/home/tab_home.dart';
 import '../../ui/screens/home/wallet/add_wallet.dart';
+import '../../ui/screens/home/wallet/term_service.dart';
 import '../../ui/screens/home/wallet/wallet_manage_screen.dart';
 import '../../ui/screens/intro/intro.dart';
 import '../../ui/screens/login/login.dart';
@@ -34,6 +35,7 @@ class Routes {
   static const String tabHome = '/tab-home';
   static const String walletManageScreen = '/wallet-manage-screen';
   static const String addWallet = '/add-wallet';
+  static const String termService = '/term-service';
   static const all = <String>{
     intro,
     signup,
@@ -46,6 +48,7 @@ class Routes {
     tabHome,
     walletManageScreen,
     addWallet,
+    termService,
   };
 }
 
@@ -64,6 +67,7 @@ class StackedRouter extends RouterBase {
     RouteDef(Routes.tabHome, page: TabHome),
     RouteDef(Routes.walletManageScreen, page: WalletManageScreen),
     RouteDef(Routes.addWallet, page: AddWallet),
+    RouteDef(Routes.termService, page: TermService),
   ];
   @override
   Map<Type, StackedRouteFactory> get pagesMap => _pagesMap;
@@ -143,6 +147,12 @@ class StackedRouter extends RouterBase {
     AddWallet: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => const AddWallet(),
+        settings: data,
+      );
+    },
+    TermService: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => const TermService(),
         settings: data,
       );
     },

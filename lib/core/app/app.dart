@@ -1,6 +1,7 @@
 
 import 'package:nft_app/ui/screens/forgot_password/reset_password.dart';
 import 'package:nft_app/ui/screens/home/wallet/add_wallet.dart';
+import 'package:nft_app/ui/screens/home/wallet/term_service.dart';
 import 'package:nft_app/ui/screens/home/wallet/wallet_manage_screen.dart';
 import 'package:nft_app/ui/screens/intro/intro.dart';
 import 'package:nft_app/ui/screens/login/login.dart';
@@ -26,6 +27,7 @@ import '../../ui/screens/verification/pin_code.dart';
   MaterialRoute(page: TabHome,),
   MaterialRoute(page: WalletManageScreen,),
   MaterialRoute(page: AddWallet,),
+  MaterialRoute(page: TermService,),
 ],dependencies: [
   Singleton(classType: DialogService),
   Singleton(classType: SnackbarService),

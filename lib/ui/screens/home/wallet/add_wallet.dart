@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 import '../../../../core/app/app.locator.dart';
+import '../../../../core/app/app.router.dart';
 import '../../../shared/title_style.dart';
 import '../../../widgets/custom_back_button.dart';
 
@@ -75,34 +76,46 @@ class AddWallet extends StatelessWidget {
               const SizedBox(
                 height: 15,
               ),
-              RichText(
-                  text: TextSpan(
-                      style: titleStyleNormal.copyWith(
-                          fontWeight: FontWeight.w500, fontSize: 14),
-                      children: [
-                    const TextSpan(
-                        text: "By connecting your wallet, you agree to our "),
-                    TextSpan(
-                        text: "Term of Service ",
-                        style: titleStylePrimary.copyWith(
-                            fontWeight: FontWeight.w500, fontSize: 14)),
-                    const TextSpan(text: "and our "),
-                    TextSpan(
-                        text: "Privacy policy ",
-                        style: titleStylePrimary.copyWith(
-                            fontWeight: FontWeight.w500, fontSize: 14)),
-                  ])),
-              const SizedBox(height: 30,),
-              buildWalletOption(CupertinoIcons.link, "Connect wallet", "Connect to third-party wallet App",
-                  (){}),
-              const SizedBox(height: 5,),
-              buildWalletOption(CupertinoIcons.arrow_down_to_line, "Import wallet", "Import your wallet via seed phrase or private key",
-                      (){}),
-
-              const SizedBox(height: 5,),
-              buildWalletOption(CupertinoIcons.at, "Track address", "Observe or track the assets of any other wallet",
-                      (){}),
-
+              InkWell(
+                onTap: (){
+                  locator<NavigationService>().navigateTo(Routes.termService);
+                },
+                child: RichText(
+                    text: TextSpan(
+                        style: titleStyleNormal.copyWith(
+                            fontWeight: FontWeight.w500, fontSize: 14),
+                        children: [
+                      const TextSpan(
+                          text: "By connecting your wallet, you agree to our "),
+                      TextSpan(
+                          text: "Term of Service ",
+                          style: titleStylePrimary.copyWith(
+                              fontWeight: FontWeight.w500, fontSize: 14)),
+                      const TextSpan(text: "and our "),
+                      TextSpan(
+                          text: "Privacy policy ",
+                          style: titleStylePrimary.copyWith(
+                              fontWeight: FontWeight.w500, fontSize: 14)),
+                    ])),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              buildWalletOption(CupertinoIcons.link, "Connect wallet",
+                  "Connect to third-party wallet App", () {}),
+              const SizedBox(
+                height: 5,
+              ),
+              buildWalletOption(
+                  CupertinoIcons.arrow_down_to_line,
+                  "Import wallet",
+                  "Import your wallet via seed phrase or private key",
+                  () {}),
+              const SizedBox(
+                height: 5,
+              ),
+              buildWalletOption(CupertinoIcons.at, "Track address",
+                  "Observe or track the assets of any other wallet", () {}),
             ],
           ),
         ),
